@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "expense-tracker-bot"
+version = "1.0.0"
+description = "Personal finance Telegram bot with expense categories, monthly PDF reports, CSV export, inline keyboards, and budget limits with alerts."
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "panaceya (N3XT3R1337)"},
+]
+dependencies = [
+    "aiogram>=3.4.0,<4.0.0",
+    "sqlalchemy>=2.0.0,<3.0.0",
+    "aiosqlite>=0.19.0",
+    "reportlab>=4.0.0",
+    "matplotlib>=3.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.scripts]
+expense-tracker-bot = "expense_tracker.bot:run"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
